@@ -1,22 +1,15 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Features } from "@/components/features/features";
+import { Footer } from "@/components/footer/footer";
+import { Heroe } from "@/components/heroe/heroe";
+import { Navbar } from "@/components/navbar/navbar";
 
 export default function Home() {
   return (
-    <Container>
-      <Row>
-        <Col>
-          <h1>Hello World</h1>
-        </Col>
-      </Row>
-      <Row>
-        <Col>1 of 2</Col>
-        <Col>2 of 2</Col>
-      </Row>
-      <Row>
-        <Col>1 of 3</Col>
-        <Col>2 of 3</Col>
-        <Col>3 of 3</Col>
-      </Row>
-    </Container>
+    <>
+      <Navbar />
+      <Heroe />
+      <Features />
+      <Footer />
+    </>
   );
 }
