@@ -7,19 +7,26 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "update:dependencies": "npx --yes npm-check-updates --interactive --format group"
+    "update:dependencies": "npx --yes npm-check-updates --interactive --format group",
+    "db:migration:generate": "drizzle-kit generate",
+    "db:migration:apply": "drizzle-kit migrate"
   },
   "dependencies": {
+    "@neondatabase/serverless": "1.0.1",
     "bootstrap": "5.3.7",
+    "dotenv": "16.6.0",
+    "drizzle-orm": "0.44.2",
+    "isomorphic-dompurify": "2.25.0",
     "next": "15.3.4",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "3.3.1",
-    "@types/node": "24.0.3",
+    "@types/node": "24.0.4",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
+    "drizzle-kit": "0.31.3",
     "eslint": "9.29.0",
     "eslint-config-next": "15.3.4",
     "typescript": "5.8.3"
