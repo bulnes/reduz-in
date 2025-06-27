@@ -3,15 +3,13 @@ import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/neon-http";
 import { notFound, redirect } from "next/navigation";
 
-interface Props {
-  params: {
-    slug: string;
-  };
-}
-
 const db = drizzle(process.env.DATABASE_URL!);
 
-export default async function ShortUrlPage({ params }: Props) {
+export default async function ShortUrlPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const pathname = `/s/${slug}`;
 
