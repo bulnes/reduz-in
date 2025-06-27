@@ -1,5 +1,5 @@
 {
-  "id": "1c10b2bb-c2f0-44a4-a2ba-6937bed07c49",
+  "id": "fb183a05-e8e7-450d-8bba-5b14a91a3fcc",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -31,8 +31,8 @@
           "primaryKey": false,
           "notNull": true
         },
-        "shortenedUrl": {
-          "name": "shortenedUrl",
+        "shortenedUrlPathname": {
+          "name": "shortenedUrlPathname",
           "type": "varchar(255)",
           "primaryKey": false,
           "notNull": true
@@ -63,11 +63,11 @@
             "originalUrl"
           ]
         },
-        "urls_shortenedUrl_unique": {
-          "name": "urls_shortenedUrl_unique",
+        "urls_shortenedUrlPathname_unique": {
+          "name": "urls_shortenedUrlPathname_unique",
           "nullsNotDistinct": false,
           "columns": [
-            "shortenedUrl"
+            "shortenedUrlPathname"
           ]
         }
       },
