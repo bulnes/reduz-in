@@ -6,6 +6,6 @@ export const submitUrl = async (url: string): Promise<string> => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(`https://reduzin.in/${btoa(url).substring(0, 8)}`);
-    }, 1000);
+    }, 5000);
   });
 }
