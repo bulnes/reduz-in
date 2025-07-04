@@ -26,8 +26,13 @@ export default async function ShortUrlPage({
     [pathname] // add the pathname to the cache key
   );
 
-  if (existingUrl && existingUrl.length > 0) {
-    const [data] = await existingUrl();
+  // Check if the cached data exists
+  // If it exists, redirect to the original URL
+  // If it doesn't exist, return a 404 not found
+  const cachedData = await existingUrl();
+
+  if (cachedData && cachedData.length > 0) {
+    const [data] = cachedData;
     const { originalUrl } = data;
 
     redirect(originalUrl);
