@@ -2,10 +2,15 @@ import { Analytics } from "@vercel/analytics/next";
 import "bootstrap/dist/css/bootstrap.min.css";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
+const metadataProps = {
   title: "Reduz.in - Shorten your links easily",
   description:
     "Reduz.in is a simple and intuitive URL shortening service that allows you to shorten your links quickly and efficiently. No complicated steps, just paste your URL and get a shortened version in seconds.",
+};
+
+export const metadata: Metadata = {
+  title: metadataProps.title,
+  description: metadataProps.description,
   keywords: [
     "URL shortening",
     "link shortener",
@@ -37,9 +42,8 @@ export const metadata: Metadata = {
   ],
   publisher: "Bruno Bulnes",
   openGraph: {
-    title: "Reduz.in - Shorten your links easily",
-    description:
-      "Reduz.in is a simple and intuitive URL shortening service that allows you to shorten your links quickly and efficiently. No complicated steps, just paste your URL and get a shortened version in seconds.",
+    title: metadataProps.title,
+    description: metadataProps.description,
     url: "https://reduz.in",
     siteName: "Reduz.in",
     images: [
@@ -55,9 +59,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Reduz.in - Shorten your links easily",
-    description:
-      "Reduz.in is a simple and intuitive URL shortening service that allows you to shorten your links quickly and efficiently. No complicated steps, just paste your URL and get a shortened version in seconds.",
+    title: metadataProps.title,
+    description: metadataProps.description,
     images: ["https://reduz.in/og-image.png"],
   },
   icons: {
