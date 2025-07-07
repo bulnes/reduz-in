@@ -8,7 +8,7 @@ export function Navbar() {
         <Link className="navbar-brand" href="/">
           <Image
             src="/reduzin-crop.png"
-            alt=""
+            alt="Reduz.in Logo"
             width={20}
             height={20}
             className="d-inline-block align-text-top me-1"
