@@ -68,7 +68,6 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
     apple: "/reduzin-crop.png",
   },
-  themeColor: "#ffffff",
   robots: {
     index: true,
     follow: true,
