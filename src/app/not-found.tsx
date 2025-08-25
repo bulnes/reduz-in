@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function NotFound() {
   return (
     <div>
-      <div className="custom-bg text-dark">
+      <div className="text-dark">
         <div className="d-flex align-items-center justify-content-center min-vh-100 px-2">
           <div className="text-center">
             <h1 className="display-1 fw-bold">404</h1>
@@ -15,7 +15,7 @@ export default function NotFound() {
 
             <Link
               href="/"
-              className="btn btn-primary fw-semibold rounded-pill px-4 py-2 custom-btn"
+              className="btn btn-primary fw-semibold rounded-pill px-4 py-2"
             >
               Go Home
             </Link>
