@@ -11,6 +11,8 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "@supabase/ssr": "0.10.2",
+    "@supabase/supabase-js": "2.104.1",
     "bootstrap": "5.3.8",
     "bootstrap-icons": "1.13.1",
     "next": "16.2.4",
