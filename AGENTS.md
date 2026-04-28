@@ -24,6 +24,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - **Linting & Formatting**: ESLint (Next.js config) + Prettier for code consistency. Stylelint for CSS (enforcing BEM). Automatically applied on changed files via `lint-staged`.
 - **Testing Strategy**: Jest for unit tests (80% coverage threshold). E2E tests (Playwright) have been intentionally removed from the project.
 - **Versioning**: Using `standard-version` for automated CHANGELOG and semantic versioning based on commits.
+- **Database Migrations**: Schema changes are managed via **Supabase CLI migrations** (`supabase/migrations/`). Never alter the database manually through the Supabase Dashboard. Always create a new migration file with `npx supabase migration new <name>` and commit it. Migrations are applied automatically to production via GitHub Actions (`deploy-migrations` job) on every push to `main`. Required GitHub Secrets: `SUPABASE_ACCESS_TOKEN` and `SUPABASE_PROJECT_REF_PROD`.
 
 ## Agent Maintenance Rules
 
@@ -31,3 +32,4 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - **Bootstrap Usage**: Always try to use native Bootstrap resources and styles, avoiding overriding the solutions it offers.
 - **Documentation Language**: Even if the user communicates in another language, all documentation (AGENTS.md, code comments, technical docs) must be written in English.
 - **Testing Coverage**: All new code must maintain a minimum of 80% unit test coverage. This is enforced globally in `jest.config.ts`.
+- **Schema Changes**: Never edit existing migration files. If a change is needed, create a new migration that alters or extends the existing schema.
