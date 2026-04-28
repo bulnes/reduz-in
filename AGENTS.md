@@ -8,7 +8,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 - **Core Stack**: Next.js `16.2.4`, React `19.2.5`, TypeScript.
 - **Router**: Using **App Router** located in `src/app`.
-- **Styling**: Vanilla CSS with **CSS Modules** (`*.module.css`) and global styles in `src/app/globals.css`.
+- **Styling**: **Bootstrap 5** for primary layout and components. Vanilla CSS with **CSS Modules** (`*.module.css`) for specific overrides. Global styles in `src/app/globals.css`.
 - **CSS Naming Convention**: All CSS rules must follow the **BEM** (Block Element Modifier) pattern (e.g., `.block__element--modifier`). Avoid camelCase in CSS classes.
 - **Component Structure**: Each component must have its own folder within `src/components/`. All related files (CSS Modules, tests, sub-components, types) must reside within that folder. The main component file should be named `index.tsx` or be exported via an `index.ts`.
 - **Fonts**: Uses `next/font` with **Geist** and **Geist Mono**.
@@ -21,3 +21,4 @@ This version has breaking changes — APIs, conventions, and file structure may 
 ## Agent Maintenance Rules
 
 - **Dependency Updates**: Every time a dependency is added, removed, or updated in `package.json`, you MUST update the **Core Stack** section in `AGENTS.md` to reflect the current versions and add any relevant learnings or breaking changes discovered.
+- **Bootstrap Usage**: Procure sempre utilizar os recursos e estilos nativos do Bootstrap, evitando sobrepor as soluções que ele oferece.
