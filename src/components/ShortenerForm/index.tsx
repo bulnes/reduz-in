@@ -1,47 +1,48 @@
-"use client";
+'use client'
 
-import { useState, useEffect } from "react";
-import { shortenUrl } from "@/app/actions";
+import { useState, useEffect } from 'react'
+import { shortenUrl } from '@/app/actions'
 
 export default function ShortenerForm() {
-  const [url, setUrl] = useState("");
-  const [shortenedUrl, setShortenedUrl] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [copied, setCopied] = useState(false);
-  const [error, setError] = useState("");
-  const [origin, setOrigin] = useState("");
+  const [url, setUrl] = useState('')
+  const [shortenedUrl, setShortenedUrl] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [copied, setCopied] = useState(false)
+  const [error, setError] = useState('')
+  const [origin, setOrigin] = useState('')
 
   useEffect(() => {
-    setOrigin(window.location.origin);
-  }, []);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setOrigin(window.location.origin)
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-    setShortenedUrl("");
+    e.preventDefault()
+    setLoading(true)
+    setError('')
+    setShortenedUrl('')
 
-    const formData = new FormData();
-    formData.append("url", url);
+    const formData = new FormData()
+    formData.append('url', url)
 
-    const result = await shortenUrl(formData);
+    const result = await shortenUrl(formData)
 
     if (result.error) {
-      setError(result.error);
+      setError(result.error)
     } else if (result.data) {
-      setShortenedUrl(`${origin}/${result.data.short_code}`);
+      setShortenedUrl(`${origin}/${result.data.short_code}`)
     }
-    setLoading(false);
-  };
+    setLoading(false)
+  }
 
   const copyToClipboard = () => {
-    if (!shortenedUrl) return;
-    
+    if (!shortenedUrl) return
+
     navigator.clipboard.writeText(shortenedUrl).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    })
+  }
 
   return (
     <div className="card border-0 shadow-lg p-4 p-md-5 rounded-4">
@@ -62,7 +63,7 @@ export default function ShortenerForm() {
             id="btnShorten"
             disabled={loading}
           >
-            {loading ? "..." : "Reduzir"}
+            {loading ? '...' : 'Reduzir'}
           </button>
         </div>
       </form>
@@ -76,24 +77,22 @@ export default function ShortenerForm() {
       {shortenedUrl && (
         <div id="resultArea" className="mt-4">
           <div className="alert alert-secondary border-0 bg-light p-4 rounded-3 text-center">
-            <p className="mb-2 text-muted small fw-bold text-uppercase">
-              Seu link encurtado:
-            </p>
+            <p className="mb-2 text-muted small fw-bold text-uppercase">Seu link encurtado:</p>
             <div className="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3">
-              <span id="shortenedUrl" className="fs-4 fw-bold text-primary text-break">
+              <span id="shortened-url" className="fs-4 fw-bold text-primary text-break">
                 {shortenedUrl}
               </span>
               <button
-                className={`btn ${copied ? "btn-success" : "btn-dark"} btn-sm px-4 rounded-pill`}
+                className={`btn ${copied ? 'btn-success' : 'btn-dark'} btn-sm px-4 rounded-pill`}
                 onClick={copyToClipboard}
                 id="copyBtn"
               >
-                {copied ? "Copiado!" : "Copiar"}
+                {copied ? 'Copiado!' : 'Copiar'}
               </button>
             </div>
           </div>
         </div>
       )}
     </div>
-  );
+  )
 }

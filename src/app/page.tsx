@@ -1,4 +1,4 @@
-import ShortenerForm from "@/components/ShortenerForm";
+import ShortenerForm from '@/components/ShortenerForm'
 
 export default function Home() {
   return (
@@ -17,7 +17,8 @@ export default function Home() {
             <div className="col-lg-8">
               <h1 className="display-4 fw-black mb-3">Links curtos, grandes resultados.</h1>
               <p className="lead text-white-50 mb-5">
-                A alternativa mais completa e acessível para transformar seus URLs em ferramentas de marketing.
+                A alternativa mais completa e acessível para transformar seus URLs em ferramentas de
+                marketing.
               </p>
             </div>
           </div>
@@ -37,14 +38,18 @@ export default function Home() {
               <div className="p-3">
                 <div className="display-6 mb-3">🚀</div>
                 <h5 className="fw-bold">Alta Performance</h5>
-                <p className="text-secondary">Redirecionamentos instantâneos para não perder nenhum clique.</p>
+                <p className="text-secondary">
+                  Redirecionamentos instantâneos para não perder nenhum clique.
+                </p>
               </div>
             </div>
             <div className="col-md-4">
               <div className="p-3">
                 <div className="display-6 mb-3">📊</div>
                 <h5 className="fw-bold">Analytics Full</h5>
-                <p className="text-secondary">Dados detalhados de cliques e origem sem custos extras.</p>
+                <p className="text-secondary">
+                  Dados detalhados de cliques e origem sem custos extras.
+                </p>
               </div>
             </div>
             <div className="col-md-4">
@@ -66,5 +71,5 @@ export default function Home() {
         </div>
       </footer>
     </main>
-  );
+  )
 }

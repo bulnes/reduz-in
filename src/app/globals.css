@@ -36,12 +36,12 @@ html {
 }
 
 /* Custom styles from the new prototype */
-.overlap-card { 
-  margin-top: -3rem; 
+.overlap-card {
+  margin-top: -3rem;
 }
 
-#shortenedUrl { 
-  word-break: break-all; 
+#shortened-url {
+  word-break: break-all;
 }
 
 .fw-black {

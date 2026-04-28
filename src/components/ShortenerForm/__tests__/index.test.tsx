@@ -52,7 +52,7 @@ describe('ShortenerForm', () => {
     await waitFor(() => {
       expect(screen.getByText(/Seu link encurtado:/i)).toBeInTheDocument()
     })
-    
+
     expect(screen.getByText(/reduz.in\//i)).toBeInTheDocument()
     expect(button).toHaveTextContent('Reduzir')
     expect(button).not.toBeDisabled()
@@ -71,10 +71,10 @@ describe('ShortenerForm', () => {
     })
 
     const copyBtn = await screen.findByRole('button', { name: /Copiar/i })
-    
+
     // Initial state (Branch on line 67)
     expect(copyBtn).toHaveClass('btn-dark')
-    
+
     fireEvent.click(copyBtn)
 
     expect(navigator.clipboard.writeText).toHaveBeenCalled()
