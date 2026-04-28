@@ -8,7 +8,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## Project Structure & Learnings
 
-- **Core Stack**: Next.js `16.2.4`, React `19.2.5`, TypeScript, Jest `30.3.0`, Supabase JS `2.104.1`, Supabase SSR `0.10.2`, Nanoid `5.1.9`, Husky `9.1.7`, Commitlint `20.5.2`, Lint-Staged `16.4.0`, Prettier `3.8.3`, Playwright `1.59.1`, Standard Version `9.5.0`, Stylelint `16.26.1`, Zod `4.3.6`, Next Bundle Analyzer `16.2.4`.
+- **Core Stack**: Next.js `16.2.4`, React `19.2.5`, TypeScript, Jest `30.3.0`, Supabase JS `2.104.1`, Supabase SSR `0.10.2`, Nanoid `5.1.9`, Husky `9.1.7`, Commitlint `20.5.2`, Lint-Staged `16.4.0`, Prettier `3.8.3`, Standard Version `9.5.0`, Stylelint `16.26.1`, Zod `4.3.6`, Next Bundle Analyzer `16.2.4`.
 - **Router**: Using **App Router** located in `src/app`.
 - **Styling**: **Bootstrap 5** for primary layout and components. Vanilla CSS with **CSS Modules** (`*.module.css`) for specific overrides. Global styles in `src/app/globals.css`.
 - **CSS Naming Convention**: All CSS rules must follow the **BEM** (Block Element Modifier) pattern (e.g., `.block__element--modifier`). Avoid camelCase in CSS classes.
@@ -22,7 +22,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - **Dependency Management**: Always use **absolute versions** in `package.json` (no `^` or `~`). When installing or updating, ensure versions are fixed to the specific version number.
 - **Quality Gates**: Husky is configured with `commit-msg` (commitlint), `pre-commit` (lint-staged + type-check), and `pre-push` (full tests with 80% coverage + build check). GitHub Actions CI runs on every PR to main.
 - **Linting & Formatting**: ESLint (Next.js config) + Prettier for code consistency. Stylelint for CSS (enforcing BEM). Automatically applied on changed files via `lint-staged`.
-- **Testing Strategy**: Jest for unit tests (80% coverage threshold). Playwright for E2E tests in `src/e2e`. Jest is configured to ignore the `src/e2e` directory.
+- **Testing Strategy**: Jest for unit tests (80% coverage threshold). E2E tests (Playwright) have been intentionally removed from the project.
 - **Versioning**: Using `standard-version` for automated CHANGELOG and semantic versioning based on commits.
 
 ## Agent Maintenance Rules
