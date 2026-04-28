@@ -21,6 +21,10 @@ const config: Config = {
       statements: 80,
     },
   },
+  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/src/e2e/'],
+  moduleNameMapper: {
+    '^nanoid$': '<rootDir>/node_modules/nanoid/index.browser.js',
+  },
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

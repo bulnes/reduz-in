@@ -15,14 +15,14 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - **Component Structure**: Each component must have its own folder within `src/components/`. All related files (CSS Modules, tests, sub-components, types) must reside within that folder. The main component file should be named `index.tsx` or be exported via an `index.ts`.
 - **Fonts**: Uses `next/font` with **Geist** and **Geist Mono**.
 - **Documentation**: Local version-matched docs are available in `node_modules/next/dist/docs/`.
-- **Key Discovery**: For fixing slow client-side navigations, `Suspense` alone is not enough; `unstable_instant` must be exported from the route (see `node_modules/next/dist/docs/01-app/02-guides/instant-navigation.md`).
+- **Key Discovery**: For fixing slow client-side navigations, `Suspense` alone is not enough; `unstable_instant` must be exported from the route (see `node_modules/next/dist/docs/01-app/02-guides/instant-navigation.md`). Jest with `jsdom` lacks `TextEncoder`, `Request`, `Response`, and `fetch`; these must be polyfilled in `jest.setup.ts`. ESM packages like `nanoid` (v5+) should be mocked to avoid transformation issues.
 - **Proxy Convention**: The `middleware` file convention is deprecated in Next.js 16.2.4+. Use `proxy.ts` instead and export a `proxy` function (see `node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/proxy.md`).
 - **AI Agent Guidance**: Specific instructions for agents are in `node_modules/next/dist/docs/01-app/02-guides/ai-agents.md`.
 - **MCP Support**: Next.js 16+ has built-in MCP support via `next-devtools-mcp` for real-time app state access (see `node_modules/next/dist/docs/01-app/02-guides/mcp.md`).
 - **Dependency Management**: Always use **absolute versions** in `package.json` (no `^` or `~`). When installing or updating, ensure versions are fixed to the specific version number.
 - **Quality Gates**: Husky is configured with `commit-msg` (commitlint), `pre-commit` (lint-staged + type-check), and `pre-push` (full tests with 80% coverage + build check). GitHub Actions CI runs on every PR to main.
 - **Linting & Formatting**: ESLint (Next.js config) + Prettier for code consistency. Stylelint for CSS (enforcing BEM). Automatically applied on changed files via `lint-staged`.
-- **Testing Strategy**: Jest for unit tests (80% coverage threshold). Playwright for E2E tests in `src/e2e`.
+- **Testing Strategy**: Jest for unit tests (80% coverage threshold). Playwright for E2E tests in `src/e2e`. Jest is configured to ignore the `src/e2e` directory.
 - **Versioning**: Using `standard-version` for automated CHANGELOG and semantic versioning based on commits.
 
 ## Agent Maintenance Rules

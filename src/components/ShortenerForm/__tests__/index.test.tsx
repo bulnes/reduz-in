@@ -1,5 +1,11 @@
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
 import ShortenerForm from '../index'
+import * as actions from '../../../app/actions'
+
+// Mock the shortenUrl action
+jest.mock('../../../app/actions', () => ({
+  shortenUrl: jest.fn(),
+}))
 
 // Mock navigator.clipboard
 Object.assign(navigator, {
@@ -12,6 +18,9 @@ describe('ShortenerForm', () => {
   beforeEach(() => {
     jest.clearAllMocks()
     jest.useFakeTimers()
+    ;(actions.shortenUrl as jest.Mock).mockResolvedValue({
+      data: { short_code: 'abc123' },
+    })
   })
 
   afterEach(() => {
@@ -53,7 +62,7 @@ describe('ShortenerForm', () => {
       expect(screen.getByText(/Seu link encurtado:/i)).toBeInTheDocument()
     })
 
-    expect(screen.getByText(/reduz.in\//i)).toBeInTheDocument()
+    expect(screen.getByText(/localhost\/abc123/i)).toBeInTheDocument()
     expect(button).toHaveTextContent('Reduzir')
     expect(button).not.toBeDisabled()
   })
