@@ -34,3 +34,16 @@ a {
 html {
   scroll-behavior: smooth;
 }
+
+/* Custom styles from the new prototype */
+.overlap-card { 
+  margin-top: -3rem; 
+}
+
+#shortenedUrl { 
+  word-break: break-all; 
+}
+
+.fw-black {
+  font-weight: 900;
+}

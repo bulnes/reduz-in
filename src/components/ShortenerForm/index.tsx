@@ -1,14 +1,12 @@
 "use client";
 
-import { useState, useRef } from "react";
-import styles from "./ShortenerForm.module.css";
+import { useState } from "react";
 
 export default function ShortenerForm() {
   const [url, setUrl] = useState("");
   const [shortenedUrl, setShortenedUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
-  const resultRef = useRef<HTMLDivElement>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,15 +17,12 @@ export default function ShortenerForm() {
       const randomSlug = Math.random().toString(36).substring(2, 8);
       setShortenedUrl(`reduz.in/${randomSlug}`);
       setLoading(false);
-
-      // Scroll para o resultado
-      setTimeout(() => {
-        resultRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-      }, 100);
-    }, 800);
+    }, 600);
   };
 
   const copyToClipboard = () => {
+    if (!shortenedUrl) return;
+    
     navigator.clipboard.writeText(shortenedUrl).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
@@ -35,44 +30,47 @@ export default function ShortenerForm() {
   };
 
   return (
-    <div className={`card ${styles.shortener} p-4 p-md-5 bg-white`}>
-      <form onSubmit={handleSubmit} className="shortener__form">
-        <div className="row g-3">
-          <div className="col-md-9">
-            <input
-              type="url"
-              className={`form-control ${styles["shortener__input"]}`}
-              placeholder="Cole sua URL longa aqui..."
-              value={url}
-              onChange={(e) => setUrl(e.target.value)}
-              required
-            />
-          </div>
-          <div className="col-md-3 d-grid">
-            <button
-              className={`btn ${styles["shortener__button"]} btn-lg`}
-              type="submit"
-              disabled={loading}
-            >
-              {loading ? "Encurtando..." : "Reduzir"}
-            </button>
-          </div>
+    <div className="card border-0 shadow-lg p-4 p-md-5 rounded-4">
+      <form onSubmit={handleSubmit} id="shortenForm">
+        <div className="input-group input-group-lg">
+          <input
+            type="url"
+            id="urlInput"
+            className="form-control border-2"
+            placeholder="Cole sua URL longa aqui..."
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+            required
+          />
+          <button
+            className="btn btn-primary fw-bold px-4"
+            type="submit"
+            id="btnShorten"
+            disabled={loading}
+          >
+            {loading ? "..." : "Reduzir"}
+          </button>
         </div>
       </form>
 
       {shortenedUrl && (
-        <div ref={resultRef} className={`${styles["shortener__result"]} p-4 mt-4 text-center`}>
-          <p className="mb-2 text-muted small fw-bold text-uppercase">
-            Link pronto para usar:
-          </p>
-          <div className="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3">
-            <span className={styles["shortener__url"]}>{shortenedUrl}</span>
-            <button
-              className={`btn ${copied ? "btn-success" : "btn-outline-dark"} btn-sm px-4`}
-              onClick={copyToClipboard}
-            >
-              {copied ? "Copiado!" : "Copiar Link"}
-            </button>
+        <div id="resultArea" className="mt-4">
+          <div className="alert alert-secondary border-0 bg-light p-4 rounded-3 text-center">
+            <p className="mb-2 text-muted small fw-bold text-uppercase">
+              Seu link encurtado:
+            </p>
+            <div className="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3">
+              <span id="shortenedUrl" className="fs-4 fw-bold text-primary">
+                {shortenedUrl}
+              </span>
+              <button
+                className={`btn ${copied ? "btn-success" : "btn-dark"} btn-sm px-4 rounded-pill`}
+                onClick={copyToClipboard}
+                id="copyBtn"
+              >
+                {copied ? "Copiado!" : "Copiar"}
+              </button>
+            </div>
           </div>
         </div>
       )}

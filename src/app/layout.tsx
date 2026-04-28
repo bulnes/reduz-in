@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Reduz.in | Encurte seus links de forma inteligente",
+  title: "Reduz.in | Encurtador de URLs",
   description: "A alternativa mais completa e acessível para transformar seus URLs em ferramentas de marketing.",
 };
 
