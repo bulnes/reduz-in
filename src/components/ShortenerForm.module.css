@@ -1,0 +1,63 @@
+.cardShortener {
+  margin-top: -60px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.formControl {
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  font-size: 1.1rem;
+}
+
+.formControl:focus {
+  border-color: #0d6efd;
+  box-shadow: none;
+}
+
+.btnPrimary {
+  padding: 12px 35px;
+  font-weight: 600;
+  border-radius: 12px;
+  background-color: #0d6efd;
+  border: none;
+  color: white;
+}
+
+.btnPrimary:hover {
+  background-color: #0b5ed7;
+  transform: translateY(-1px);
+}
+
+.btnPrimary:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.resultBox {
+  background-color: #f1f5f9;
+  border-radius: 12px;
+  border: 1px dashed #cbd5e1;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.shortenedUrl {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0d6efd;
+  word-break: break-all;
+}

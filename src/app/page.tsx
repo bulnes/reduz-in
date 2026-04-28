@@ -1,177 +1,71 @@
-import Image from "next/image";
+import ShortenerForm from "@/components/ShortenerForm";
+import styles from "./page.module.css";
 
 export default function Home() {
   return (
     <main>
-      {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+      <nav className="navbar navbar-expand-lg position-absolute w-100 mt-3">
         <div className="container">
-          <a className="navbar-brand fw-bold" href="#">
-            REDUZ-IN
+          <a className={`navbar-brand ${styles.navbarBrand}`} href="#">
+            Reduz<span className={styles.brandDot}>.in</span>
           </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#features">
-                  Features
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#about">
-                  About
-                </a>
-              </li>
-              <li className="nav-item">
-                <button
-                  className="btn btn-primary ms-lg-3 rounded-pill px-4"
-                  data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
-                >
-                  Get Started
-                </button>
-              </li>
-            </ul>
-          </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="py-5 text-center container-fluid bg-light border-bottom">
-        <div className="row py-lg-5 justify-content-center">
-          <div className="col-lg-6 col-md-8">
-            <h1 className="display-3 fw-bold text-dark mb-4">
-              Modern Performance <br />
-              <span className="text-primary">Redefined.</span>
-            </h1>
-            <p className="lead text-muted mb-5">
-              Experience the power of Next.js 16 and Bootstrap 5 combined. 
-              Lightning fast, fully responsive, and server-side rendered for optimal SEO.
-            </p>
-            <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-              <button
-                type="button"
-                className="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-sm"
-              >
-                Explore More
-              </button>
-              <button
-                type="button"
-                className="btn btn-outline-secondary btn-lg px-5 py-3 rounded-pill"
-              >
-                View Source
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Feature Section */}
-      <section id="features" className="py-5">
+      <header className={`${styles.heroSection} text-center`}>
         <div className="container">
-          <div className="row g-4 py-5">
-            <div className="col-md-4">
-              <div className="card h-100 border-0 shadow-sm hover-shadow transition">
-                <div className="card-body p-4">
-                  <div className="mb-3 text-primary">
-                    <i className="bi bi-lightning-fill fs-1"></i>
-                  </div>
-                  <h3 className="h4 fw-bold">Fast Rendering</h3>
-                  <p className="text-muted">
-                    Server-side rendering ensures your content is visible instantly to users and search engines.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="card h-100 border-0 shadow-sm hover-shadow transition">
-                <div className="card-body p-4">
-                  <div className="mb-3 text-success">
-                    <i className="bi bi-shield-check fs-1"></i>
-                  </div>
-                  <h3 className="h4 fw-bold">Secure by Default</h3>
-                  <p className="text-muted">
-                    Built with the latest security standards in mind, keeping your data and users safe.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="card h-100 border-0 shadow-sm hover-shadow transition">
-                <div className="card-body p-4">
-                  <div className="mb-3 text-info">
-                    <i className="bi bi-palette-fill fs-1"></i>
-                  </div>
-                  <h3 className="h4 fw-bold">Rich Aesthetics</h3>
-                  <p className="text-muted">
-                    A beautiful, modern design language that provides an exceptional user experience.
-                  </p>
-                </div>
-              </div>
+          <div className="row justify-content-center">
+            <div className="col-lg-8">
+              <h1 className="display-3 fw-bold mb-3">
+                Links curtos, grandes resultados.
+              </h1>
+              <p className="lead opacity-75 mb-0">
+                A alternativa mais completa e acessível para transformar seus URLs em ferramentas de marketing.
+              </p>
             </div>
           </div>
         </div>
-      </section>
+      </header>
 
-      {/* Test Modal */}
-      <div
-        className="modal fade"
-        id="exampleModal"
-        tabIndex={-1}
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content border-0 shadow">
-            <div className="modal-header border-0">
-              <h5 className="modal-title fw-bold" id="exampleModalLabel">
-                Bootstrap JS Verification
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">
-              If you see this modal, Bootstrap JavaScript is correctly configured and working on the client side!
-            </div>
-            <div className="modal-footer border-0">
-              <button
-                type="button"
-                className="btn btn-secondary rounded-pill px-4"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" className="btn btn-primary rounded-pill px-4">
-                Got it
-              </button>
-            </div>
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-lg-8">
+            <ShortenerForm />
           </div>
         </div>
+
+        <section className="mt-5 pt-5">
+          <div className="row g-4 text-center">
+            <div className="col-md-4">
+              <div className={styles.featureIcon}>🚀</div>
+              <h5 className="fw-bold">Alta Performance</h5>
+              <p className="text-muted">
+                Redirecionamentos instantâneos para não perder nenhum clique.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <div className={styles.featureIcon}>📊</div>
+              <h5 className="fw-bold">Analytics Full</h5>
+              <p className="text-muted">
+                Dados detalhados de cliques, países e dispositivos sem custos extras.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <div className={styles.featureIcon}>🛡️</div>
+              <h5 className="fw-bold">Segurança Total</h5>
+              <p className="text-muted">
+                Monitoramento contra spam e phishing em tempo real.
+              </p>
+            </div>
+          </div>
+        </section>
       </div>
 
-      {/* Footer */}
-      <footer className="py-5 bg-dark text-white text-center">
+      <footer className={`${styles.footer} text-center`}>
         <div className="container">
-          <p className="mb-0">&copy; 2026 Reduz-in. Built with Next.js & Bootstrap.</p>
+          <p className="text-muted mb-0 small">
+            © 2026 <strong>Reduz.in</strong> - Simplificando a web, um link por vez.
+          </p>
         </div>
       </footer>
     </main>
