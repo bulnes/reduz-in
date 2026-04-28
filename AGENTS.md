@@ -14,6 +14,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - **Fonts**: Uses `next/font` with **Geist** and **Geist Mono**.
 - **Documentation**: Local version-matched docs are available in `node_modules/next/dist/docs/`.
 - **Key Discovery**: For fixing slow client-side navigations, `Suspense` alone is not enough; `unstable_instant` must be exported from the route (see `node_modules/next/dist/docs/01-app/02-guides/instant-navigation.md`).
+- **Proxy Convention**: The `middleware` file convention is deprecated in Next.js 16.2.4+. Use `proxy.ts` instead and export a `proxy` function (see `node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/proxy.md`).
 - **AI Agent Guidance**: Specific instructions for agents are in `node_modules/next/dist/docs/01-app/02-guides/ai-agents.md`.
 - **MCP Support**: Next.js 16+ has built-in MCP support via `next-devtools-mcp` for real-time app state access (see `node_modules/next/dist/docs/01-app/02-guides/mcp.md`).
 - **Dependency Management**: Always use **absolute versions** in `package.json` (no `^` or `~`). When installing or updating, ensure versions are fixed to the specific version number.
