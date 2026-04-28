@@ -17,3 +17,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - **AI Agent Guidance**: Specific instructions for agents are in `node_modules/next/dist/docs/01-app/02-guides/ai-agents.md`.
 - **MCP Support**: Next.js 16+ has built-in MCP support via `next-devtools-mcp` for real-time app state access (see `node_modules/next/dist/docs/01-app/02-guides/mcp.md`).
 - **Dependency Management**: Always use **absolute versions** in `package.json` (no `^` or `~`). When installing or updating, ensure versions are fixed to the specific version number.
+
+## Agent Maintenance Rules
+
+- **Dependency Updates**: Every time a dependency is added, removed, or updated in `package.json`, you MUST update the **Core Stack** section in `AGENTS.md` to reflect the current versions and add any relevant learnings or breaking changes discovered.
