@@ -6,7 +6,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## Project Structure & Learnings
 
-- **Core Stack**: Next.js `16.2.4`, React `19.2.5`, TypeScript.
+- **Core Stack**: Next.js `16.2.4`, React `19.2.5`, TypeScript, Jest `30.3.0`.
 - **Router**: Using **App Router** located in `src/app`.
 - **Styling**: **Bootstrap 5** for primary layout and components. Vanilla CSS with **CSS Modules** (`*.module.css`) for specific overrides. Global styles in `src/app/globals.css`.
 - **CSS Naming Convention**: All CSS rules must follow the **BEM** (Block Element Modifier) pattern (e.g., `.block__element--modifier`). Avoid camelCase in CSS classes.
@@ -23,3 +23,4 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - **Dependency Updates**: Every time a dependency is added, removed, or updated in `package.json`, you MUST update the **Core Stack** section in `AGENTS.md` to reflect the current versions and add any relevant learnings or breaking changes discovered.
 - **Bootstrap Usage**: Always try to use native Bootstrap resources and styles, avoiding overriding the solutions it offers.
 - **Documentation Language**: Even if the user communicates in another language, all documentation (AGENTS.md, code comments, technical docs) must be written in English.
+- **Testing Coverage**: All new code must maintain a minimum of 80% unit test coverage. This is enforced globally in `jest.config.ts`.
