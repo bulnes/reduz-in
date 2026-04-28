@@ -1,23 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { shortenUrl } from "@/app/actions";
 
 export default function ShortenerForm() {
   const [url, setUrl] = useState("");
   const [shortenedUrl, setShortenedUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [error, setError] = useState("");
+  const [origin, setOrigin] = useState("");
+
+  useEffect(() => {
+    setOrigin(window.location.origin);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError("");
+    setShortenedUrl("");
 
-    // Simulação de lógica de backend
-    setTimeout(() => {
-      const randomSlug = Math.random().toString(36).substring(2, 8);
-      setShortenedUrl(`reduz.in/${randomSlug}`);
-      setLoading(false);
-    }, 600);
+    const formData = new FormData();
+    formData.append("url", url);
+
+    const result = await shortenUrl(formData);
+
+    if (result.error) {
+      setError(result.error);
+    } else if (result.data) {
+      setShortenedUrl(`${origin}/${result.data.short_code}`);
+    }
+    setLoading(false);
   };
 
   const copyToClipboard = () => {
@@ -53,6 +67,12 @@ export default function ShortenerForm() {
         </div>
       </form>
 
+      {error && (
+        <div className="alert alert-danger mt-3 mb-0 py-2 small" role="alert">
+          {error}
+        </div>
+      )}
+
       {shortenedUrl && (
         <div id="resultArea" className="mt-4">
           <div className="alert alert-secondary border-0 bg-light p-4 rounded-3 text-center">
@@ -60,7 +80,7 @@ export default function ShortenerForm() {
               Seu link encurtado:
             </p>
             <div className="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3">
-              <span id="shortenedUrl" className="fs-4 fw-bold text-primary">
+              <span id="shortenedUrl" className="fs-4 fw-bold text-primary text-break">
                 {shortenedUrl}
               </span>
               <button

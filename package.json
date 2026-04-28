@@ -15,6 +15,7 @@
     "@supabase/supabase-js": "2.104.1",
     "bootstrap": "5.3.8",
     "bootstrap-icons": "1.13.1",
+    "nanoid": "5.1.9",
     "next": "16.2.4",
     "react": "19.2.5",
     "react-dom": "19.2.5"

@@ -6,7 +6,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## Project Structure & Learnings
 
-- **Core Stack**: Next.js `16.2.4`, React `19.2.5`, TypeScript, Jest `30.3.0`, Supabase JS `2.104.1`, Supabase SSR `0.10.2`.
+- **Core Stack**: Next.js `16.2.4`, React `19.2.5`, TypeScript, Jest `30.3.0`, Supabase JS `2.104.1`, Supabase SSR `0.10.2`, Nanoid `5.1.9`.
 - **Router**: Using **App Router** located in `src/app`.
 - **Styling**: **Bootstrap 5** for primary layout and components. Vanilla CSS with **CSS Modules** (`*.module.css`) for specific overrides. Global styles in `src/app/globals.css`.
 - **CSS Naming Convention**: All CSS rules must follow the **BEM** (Block Element Modifier) pattern (e.g., `.block__element--modifier`). Avoid camelCase in CSS classes.
