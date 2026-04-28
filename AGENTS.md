@@ -21,4 +21,5 @@ This version has breaking changes — APIs, conventions, and file structure may 
 ## Agent Maintenance Rules
 
 - **Dependency Updates**: Every time a dependency is added, removed, or updated in `package.json`, you MUST update the **Core Stack** section in `AGENTS.md` to reflect the current versions and add any relevant learnings or breaking changes discovered.
-- **Bootstrap Usage**: Procure sempre utilizar os recursos e estilos nativos do Bootstrap, evitando sobrepor as soluções que ele oferece.
+- **Bootstrap Usage**: Always try to use native Bootstrap resources and styles, avoiding overriding the solutions it offers.
+- **Documentation Language**: Even if the user communicates in another language, all documentation (AGENTS.md, code comments, technical docs) must be written in English.
