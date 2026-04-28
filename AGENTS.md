@@ -9,6 +9,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - **Core Stack**: Next.js `16.2.4`, React `19.2.5`, TypeScript.
 - **Router**: Using **App Router** located in `src/app`.
 - **Styling**: Vanilla CSS with **CSS Modules** (`*.module.css`) and global styles in `src/app/globals.css`.
+- **CSS Naming Convention**: All CSS rules must follow the **BEM** (Block Element Modifier) pattern (e.g., `.block__element--modifier`). Avoid camelCase in CSS classes.
 - **Fonts**: Uses `next/font` with **Geist** and **Geist Mono**.
 - **Documentation**: Local version-matched docs are available in `node_modules/next/dist/docs/`.
 - **Key Discovery**: For fixing slow client-side navigations, `Suspense` alone is not enough; `unstable_instant` must be exported from the route (see `node_modules/next/dist/docs/01-app/02-guides/instant-navigation.md`).

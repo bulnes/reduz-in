@@ -1,4 +1,4 @@
-.cardShortener {
+.shortener {
   margin-top: -60px;
   border: none;
   border-radius: 20px;
@@ -6,19 +6,19 @@
   transition: transform 0.3s ease;
 }
 
-.formControl {
+.shortener__input {
   padding: 16px 20px;
   border-radius: 12px;
   border: 2px solid #e2e8f0;
   font-size: 1.1rem;
 }
 
-.formControl:focus {
+.shortener__input:focus {
   border-color: #0d6efd;
   box-shadow: none;
 }
 
-.btnPrimary {
+.shortener__button {
   padding: 12px 35px;
   font-weight: 600;
   border-radius: 12px;
@@ -27,17 +27,17 @@
   color: white;
 }
 
-.btnPrimary:hover {
+.shortener__button:hover {
   background-color: #0b5ed7;
   transform: translateY(-1px);
 }
 
-.btnPrimary:disabled {
+.shortener__button:disabled {
   background-color: #6c757d;
   cursor: not-allowed;
 }
 
-.resultBox {
+.shortener__result {
   background-color: #f1f5f9;
   border-radius: 12px;
   border: 1px dashed #cbd5e1;
@@ -55,7 +55,7 @@
   }
 }
 
-.shortenedUrl {
+.shortener__url {
   font-size: 1.25rem;
   font-weight: 700;
   color: #0d6efd;

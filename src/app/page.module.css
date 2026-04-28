@@ -1,4 +1,4 @@
-.heroSection {
+.hero {
   padding: 120px 0 100px 0;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   color: white;
@@ -6,18 +6,18 @@
   border-bottom-right-radius: 40px;
 }
 
-.navbarBrand {
+.navbar__brand {
   font-weight: 800;
   letter-spacing: -1px;
   font-size: 1.6rem;
   color: white !important;
 }
 
-.brandDot {
+.navbar__brand-dot {
   color: #0d6efd;
 }
 
-.featureIcon {
+.feature__icon {
   font-size: 2rem;
   margin-bottom: 1rem;
   display: inline-block;
