@@ -14,7 +14,7 @@ export async function shortenUrl(formData: FormData) {
   try {
     // Basic URL validation
     new URL(originalUrl)
-  } catch (e) {
+  } catch {
     return { error: 'Invalid URL format' }
   }
 
